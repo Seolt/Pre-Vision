@@ -4,5 +4,5 @@
 <img src="https://img.shields.io/badge/Node.js-5FA04E?style=for-the-badge&logo=Node.js&logoColor=Green"><img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=Express.js&logoColor=Black">
 ### ✔️API
 <img src="https://img.shields.io/badge/VirusTotal-394EFF?style=for-the-badge&logo=VirusTotal&logoColor=#394EFF">
-### ✔️DataBase
+### ✔️DB
 <img src="https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=MariaDB&logoColor=#003545">
