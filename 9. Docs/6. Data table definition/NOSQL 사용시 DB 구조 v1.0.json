@@ -1,0 +1,98 @@
+{
+    "details": {
+        "hash": {
+            "md5": "",
+            "sha1": "",
+            "sha256": "",
+            "vhash": "",
+            "auth_hash": "",
+            "imphash": "",
+            "ssdeep": "",
+            "tlsh": ""
+        },
+        "file_info": {
+            "md5": "",
+            "file_type": "",
+            "magic": "",
+            "file_size": "",
+            "PEID_packer": "",
+            "first_seen_time": "",
+            "name": {
+                "name1": "",
+                "name2": ""
+            }
+        },
+        "signature": {
+            "verification": ""
+        },
+        "pe_info": {
+            ".net_details": {},
+            "header": {},
+            "sections": {},
+            "imports": {},
+            "contained_resources": {}
+        },
+        "dot_net_assembly": {
+            "general": {},
+            "streams": {},
+            "manifest_resource": {},
+            "external_assemblies": {},
+            "assembly_data": {},
+            "type_definitions": {},
+            "external_modules": {},
+            "unmanged_method_list": {}
+        }
+    },
+    "behavior": {
+        "behavior_tags": {},
+        "mitre": {
+            "privilege_escalation": {},
+            "defense_evasion": {},
+            "discovery": {},
+            "collection": {},
+            "command_and_control": {}
+        },
+        "capabilities": {},
+        "network_communications": {
+            "DNS_resolutions": {},
+            "IP_traffic": {},
+            "JA3_digests": {},
+            "TLS": {}
+        },
+        "behavior_similarity_hashes": {
+            "CAPA": "",
+            "Microsoft_Sysinternals": "",
+            "Tencent_HABO": "",
+            "Yomi_Hunter": "",
+            "Zenbox": ""
+        },
+        "file_system_actions": {
+            "file_opened": {},
+            "files_written": {},
+            "files_deleted": {},
+            "files_copied": {},
+            "files_dropped": {}
+        },
+        "registry_actions": {
+            "registry_keys_opened": {},
+            "registry_keys_set": {}
+        },
+        "process_and_serviece_actions": {
+            "processes_created": {},
+            "shell_commands": {},
+            "processes_terminated": {},
+            "process_tree": {}
+        },
+        "synchronization_mechanisms_signal": {
+            "mutexes_created": {},
+            "mutexes_opened": {}
+        },
+        "modules_loaded": {
+            "runtime_modules": {}
+        },
+        "highlighted_actions": {
+            "calls_highlighted": {},
+            "highlighted_text": {}
+        }
+    }
+}
