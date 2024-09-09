@@ -17,16 +17,12 @@
             "file_size": "",
             "PEID_packer": "",
             "first_seen_time": "",
-            "name": {
-                "name1": "",
-                "name2": ""
-            }
+            "name": ""
         },
         "signature": {
             "verification": ""
         },
         "pe_info": {
-            ".net_details": {},
             "header": {},
             "sections": {},
             "imports": {},
