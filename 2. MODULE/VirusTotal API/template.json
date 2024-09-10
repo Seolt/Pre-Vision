@@ -1,0 +1,81 @@
+{
+	"md5":"",
+    "details": {
+        "hash": {
+            "md5": "",
+            "sha1": "",
+            "sha256": "",
+            "vhash": "",
+            "auth_hash": "",
+            "imphash": "",
+            "ssdeep": "",
+            "tlsh": ""
+        },
+        "file_info": {
+            "md5": "",
+            "file_type": "",
+            "magic": "",
+            "file_size": "",
+            "PEID_packer": "",
+            "first_seen_time": "",
+            "name": ""
+        },
+        "signature": {
+        },
+        "pe_info": {
+        },
+        "dot_net_assembly": {
+        }
+    },
+    "behavior": {
+        "mitre": {
+
+        },
+        "Capabilities": {
+
+        },
+        "tags": {
+
+        },
+        "network_communications": {
+            "http_conversations": {},
+            "ja3_digests": {},
+            "memory_pattern_domains": {},
+            "memory_pattern_ips": {},
+            "memory_pattern_urls": {},
+            "tls": {}
+        },
+        "file_system_actions": {
+            "files_opened": {},
+            "files_written": {},
+            "files_deleted": {},
+            "files_attribute_changed": {},
+            "files_dropped": {}
+        },
+        "registry_actions":{
+            "registry_keys_opened": {},
+            "registry_keys_set": {},
+            "registry_keys_deleted": {}
+        },
+        "process_and_service_actions": {
+            "processes_created": {},
+            "command_executions": {},
+            "processes_injected": {},
+            "processes_terminated": {},
+            "services_opened": {},
+            "processes_tree": {}
+        },
+        "synchronization_mechanisms_signals": {
+            "mutexes_created": {},
+            "mutexes_opened": {}
+        },
+        "modules_loaded": {
+        },
+        "highlighted_actions": {
+            "calls_highlighted": {},
+            "text_decoded": {}
+        },
+        "system_property_lookups": {}
+
+    }
+}
