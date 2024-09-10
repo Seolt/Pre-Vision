@@ -51,7 +51,6 @@ def process_hash(hash_value, processed_hashes, template):
         return
 
     behavior = call_virustotal_api(hash_value, "behaviour_summary")
-    print(behavior)
     if behavior is None:
         print(f"{hash_value} 처리 실패. 행동 분석 정보를 찾을 수 없습니다.")
 
