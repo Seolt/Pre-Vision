@@ -1,9 +1,13 @@
 from pymongo import MongoClient
 from datetime import datetime
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
+#env에서 로드
+MONGO_URI=os.getenv("MONGO_URI")
 # MongoDB 연결
-client = MongoClient('mongodb://admin:qwer1234!@predb.yeonharin.com:27017/?authSource=admin&directConnection=true')
+client = MongoClient(MONGO_URI)
 
 # 데이터베이스 선택
 db = client['normal_files']
@@ -25,7 +29,7 @@ def generate_signature_id():
 # 파일 경로 지정
 #file_path = r'C:\Users\Administrator\Desktop\sample_data\PEview.exe'
 #file_path = r'C:\Users\Administrator\Desktop\sample_data\notepad.exe'
-file_path = r'C:\Users\Administrator\Desktop\sample_data\calc.exe'
+file_path = r'C:\Users\Administrator\Desktop\sample_data\PEview.exe'
 # 파일명과 확장자 추출
 filename = os.path.basename(file_path)  # 파일명 추출
 file_extension = os.path.splitext(filename)[1]  # 확장자 추출 (예: .exe)

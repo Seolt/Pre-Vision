@@ -3,13 +3,17 @@ from pymongo import MongoClient
 import gridfs
 from logging_Utils import setup_logger
 from datetime import datetime
+from dotenv import load_dotenv
 
+load_dotenv()
+#env에서 로드
+MONGO_URI=os.getenv("MONGO_URI")
 # 로그 설정
 log_file = r'C:\pymodules\log\file_encryption.log'
 logger = setup_logger(log_file)
 
 # MongoDB 연결 설정
-client = MongoClient('mongodb://admin:qwer1234!@predb.yeonharin.com:27017/?authSource=admin&directConnection=true')
+client = MongoClient(MONGO_URI)
 db = client['encrypted_files']  # encrypted_files DB 사용
 fs = gridfs.GridFS(db)  # GridFS를 이용해 파일을 저장
 

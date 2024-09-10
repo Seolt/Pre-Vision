@@ -1,7 +1,12 @@
 from pymongo import MongoClient
 import datetime
 from logging_Utils import setup_logger  # 로깅 설정 함수 가져오기
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+#env에서 로드
+MONGO_URI=os.getenv("MONGO_URI")
 # 로그 파일 설정
 log_file = r'C:\pymodules\log\upload_db_encpe.log'
 logger = setup_logger(log_file)
@@ -10,7 +15,7 @@ logger = setup_logger(log_file)
 def store_encrypted_file_pe_info(signature_id, encrypted_filename, upload_ip, pe_info, encryption_status):
     try:
         # MongoDB 연결 설정
-        client = MongoClient('mongodb://admin:qwer1234!@predb.yeonharin.com:27017/?authSource=admin&directConnection=true')
+        client = MongoClient(MONGO_URI)
         db = client['encrypted_files']
         encrypted_file_pe_info_collection = db['pe_info']
 

@@ -5,13 +5,17 @@ import convert_NorToEnc  # 암호화 모듈
 import uploadDB_NorPE  # PE 섹션 분석 및 저장 모듈
 import check_Enc  # 암호화 확인 모듈
 from logging_Utils import setup_logger  # 로그 설정 함수
+from dotenv import load_dotenv
+load_dotenv()
 
+#env에서 로드
+MONGO_URI=os.getenv("MONGO_URI")
 # 로그 파일 설정
 log_file = r'C:\pymodules\log\db_file_store.log'
 logger = setup_logger(log_file)
 
 # MongoDB 연결 설정
-client = MongoClient('mongodb://admin:qwer1234!@predb.yeonharin.com:27017/?authSource=admin&directConnection=true')
+client = MongoClient(MONGO_URI)
 db = client['normal_files']
 collection = db['filedata']
 

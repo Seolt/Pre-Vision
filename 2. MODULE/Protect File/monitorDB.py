@@ -1,7 +1,12 @@
 from pymongo import MongoClient
 import downloadDB_Nor  # 파일 저장 모듈
 from logging_Utils import setup_logger  # 공통 로그 설정 함수
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+#env에서 로드
+MONGO_URI=os.getenv("MONGO_URI")
 # 로그 설정
 log_file = r'C:\pymodules\log\db_monitor.log'
 logger = setup_logger(log_file)
@@ -10,7 +15,7 @@ def monitor_files():
     """MongoDB Change Stream을 사용하여 normal_files.filedata 테이블을 모니터링"""
     try:
         # MongoDB에 연결
-        client = MongoClient('mongodb://admin:qwer1234!@predb.yeonharin.com:27017/?authSource=admin&directConnection=true')
+        client = MongoClient(MONGO_URI)
         db = client['normal_files']
 
         # Change Streams로 normal_files에서 파일 업로드를 감시
