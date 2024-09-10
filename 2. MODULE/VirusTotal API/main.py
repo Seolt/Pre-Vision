@@ -9,13 +9,13 @@ from mongodb_handler import upload_to_mongodb
 
 
 # 설정
-MAX_EXECUTIONS_PER_MINUTE = 5  # 분당 최대 5번 실행
+MAX_EXECUTIONS_PER_MINUTE = 2  # 분당 최대 2번 실행
 MAX_EXECUTIONS_PER_DAY = 250  # 하루 최대 250번 실행
 PROCESSED_HASHES_FILE = 'processed_hashes.json'  # 처리된 해시 기록
 
 # 분당 5번 실행을 위한 제한 함수
 def rate_limiter():
-    time.sleep(12)  # 12초에 1번 실행 -> 분당 5번 실행 가능
+    time.sleep(30)  # 30초마다 1번 실행 -> 분당 2번 실행 가능
 # 처리된 해시 기록 로드
 def load_processed_hashes():
     try:
@@ -51,11 +51,11 @@ def process_hash(hash_value, processed_hashes, template):
         return
 
     behavior = call_virustotal_api(hash_value, "behaviour_summary")
+    print(behavior)
     if behavior is None:
         print(f"{hash_value} 처리 실패. 행동 분석 정보를 찾을 수 없습니다.")
-        return
 
-    if details and behavior:
+    if details:
         # 데이터 변환
         converted_data = convert_data(details, behavior, template)
 
@@ -67,7 +67,7 @@ def process_hash(hash_value, processed_hashes, template):
         save_processed_hashes(processed_hashes)
     else:
         print(f"{hash_value} 처리 실패.")
-
+    rate_limiter()
 
 if __name__ == "__main__":
     # CSV에서 해시값 읽기
@@ -92,4 +92,4 @@ if __name__ == "__main__":
 
         process_hash(hash_value, processed_hashes, template)
         execution_count += 1
-        rate_limiter()
+        

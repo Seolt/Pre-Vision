@@ -2,6 +2,7 @@ import json
 
 
 def convert_data(details, behavior, template):
+    
     detail_data_attribute = details.get("data", {}).get("attributes", {})
     template["md5"]=detail_data_attribute.get("md5", None)
     # 해시 정보
@@ -31,7 +32,9 @@ def convert_data(details, behavior, template):
 
     template["details"]["pe_info"] = detail_data_attribute.get("pe_info", {})
     template["details"]["dot_net_assembly"] = detail_data_attribute.get("dot_net_assembly", {})
-
+    if behavior is None or behavior.get("data") is None:
+        return template  # 혹은 적절한 리턴 값을 설정
+        
     # virustotal_behavior.json에서 행동 정보 추가
     # MITRE 공격 기법 정보 추가
     mitre_techniques = behavior.get("data", {}).get("mitre_attack_techniques", {})
