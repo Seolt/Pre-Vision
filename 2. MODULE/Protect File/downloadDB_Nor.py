@@ -6,6 +6,7 @@ import uploadDB_NorPE  # PE 섹션 분석 및 저장 모듈
 import check_Enc  # 암호화 확인 모듈
 from logging_Utils import setup_logger  # 로그 설정 함수
 from dotenv import load_dotenv
+import gridfs
 load_dotenv()
 
 #env에서 로드
@@ -18,9 +19,13 @@ logger = setup_logger(log_file)
 client = MongoClient(MONGO_URI)
 db = client['normal_files']
 collection = db['filedata']
-
-def store_file(file_doc):
-    """DB에서 파일을 다운로드하고 signature_id로 로컬에 저장 (확장자 필드 사용)"""
+fs = gridfs.GridFS(db)
+def store_file(file_doc, file_data):
+    """
+    DB에서 파일을 다운로드하고 signature_id로 로컬에 저장 (확장자 필드 사용).
+    :param file_doc: 파일의 메타데이터 문서
+    :param file_data: GridFS에서 가져온 파일의 바이너리 데이터
+    """
     try:
         signature_id = file_doc["signature_id"]
         file_extension = file_doc.get("file_extension", "")
@@ -40,14 +45,14 @@ def store_file(file_doc):
         # 파일명을 signature_id로 하고, 확장자를 적용
         local_file_path = os.path.join(local_folder_path, f"{signature_id}{file_extension}")
 
-        # MongoDB에서 파일 데이터 다운로드 및 로컬에 저장
+        # 파일 데이터를 로컬에 저장
         with open(local_file_path, "wb") as f:
-            f.write(file_doc["file_data"])  # 파일 데이터를 바이너리로 저장
+            f.write(file_data)  # 파일 데이터를 바이너리로 저장
 
         logger.info(f"File with signature_id {signature_id} has been saved to {local_file_path}")
 
         # 3-1: 파일 PE 섹션 분석
-        pe_info = check_Enc.analyze_pe_sections(file_doc["file_data"], is_path=False)
+        pe_info = check_Enc.analyze_pe_sections(file_data, is_path=False)
         
         # 3-2: 섹션 암호화 여부 확인
         encryption_status = check_Enc.check_file_encryption(pe_info)
@@ -62,6 +67,9 @@ def store_file(file_doc):
         else:
             logger.error(f"Encryption failed for file {local_file_path}.")
 
+        return local_file_path
+
     except Exception as e:
         logger.error(f"Error storing file with signature_id {file_doc.get('signature_id', 'unknown')}: {e}", exc_info=True)
         print(f"Error storing file with signature_id {file_doc.get('signature_id', 'unknown')}. Check log for details.")
+        return None

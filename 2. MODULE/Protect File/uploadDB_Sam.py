@@ -1,16 +1,19 @@
 from pymongo import MongoClient
 from datetime import datetime
 import os
+import gridfs
 from dotenv import load_dotenv
 
+# 환경 변수 로드
 load_dotenv()
-#env에서 로드
-MONGO_URI=os.getenv("MONGO_URI")
+MONGO_URI = os.getenv("MONGO_URI")
+
 # MongoDB 연결
 client = MongoClient(MONGO_URI)
 
-# 데이터베이스 선택
+# 데이터베이스 및 GridFS 설정
 db = client['normal_files']
+fs = gridfs.GridFS(db)  # GridFS 인스턴스 생성
 collection = db['filedata']
 
 # signature_id 생성 함수
@@ -27,9 +30,8 @@ def generate_signature_id():
     return signature_id
 
 # 파일 경로 지정
-#file_path = r'C:\Users\Administrator\Desktop\sample_data\PEview.exe'
-#file_path = r'C:\Users\Administrator\Desktop\sample_data\notepad.exe'
-file_path = r'C:\Users\Administrator\Desktop\sample_data\PEview.exe'
+file_path = r'C:\Users\Administrator\Desktop\sample_data\Bandizip.exe'
+
 # 파일명과 확장자 추출
 filename = os.path.basename(file_path)  # 파일명 추출
 file_extension = os.path.splitext(filename)[1]  # 확장자 추출 (예: .exe)
@@ -41,17 +43,20 @@ with open(file_path, 'rb') as file:
 # signature_id 생성
 signature_id = generate_signature_id()
 
-# 파일 정보를 MongoDB에 삽입
+# GridFS에 파일 저장
+gridfs_file_id = fs.put(file_data, filename=filename)
+
+# 파일 정보를 MongoDB의 메타데이터 컬렉션에 삽입
 file_document = {
     "signature_id": signature_id,
     "filename": filename,
     "file_extension": file_extension,  # 확장자 추가
-    "file_data": file_data,
+    "gridfs_file_id": gridfs_file_id,  # GridFS 파일 ID
     "upload_time": datetime.now(),
     "upload_ip": "192.168.0.1"  # 적절한 IP를 입력하세요
 }
 
-# 데이터 삽입
+# 메타데이터를 MongoDB 컬렉션에 삽입
 collection.insert_one(file_document)
 
-print(f"파일이 MongoDB에 성공적으로 업로드되었습니다. Signature ID: {signature_id}")
+print(f"파일이 GridFS와 MongoDB 메타데이터 컬렉션에 성공적으로 업로드되었습니다. Signature ID: {signature_id}")

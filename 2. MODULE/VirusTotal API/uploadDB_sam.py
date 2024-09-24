@@ -1,5 +1,6 @@
 import hashlib
 from pymongo import MongoClient
+import gridfs
 import os
 from dotenv import load_dotenv
 from datetime import datetime
@@ -10,9 +11,10 @@ MONGO_URI = os.getenv('MONGO_URI')
 DB_NAME = "vsapi"
 FILES_COLLECTION = "file"
 
-# MongoDB 연결
+# MongoDB 연결 및 GridFS 인스턴스 생성
 client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
+fs = gridfs.GridFS(db)  # GridFS 인스턴스 생성
 collection = db[FILES_COLLECTION]
 
 # MD5 해시 계산 함수
@@ -36,7 +38,7 @@ def generate_signature_id():
     signature_id = f"{today}-{next_id:03d}"
     return signature_id
 
-# 파일 업로드 함수
+# 파일 업로드 함수 (GridFS 적용)
 def upload_file_to_mongodb(file_path, upload_ip):
     filehash = calculate_md5(file_path)
     filename = os.path.basename(file_path)
@@ -47,22 +49,25 @@ def upload_file_to_mongodb(file_path, upload_ip):
     # 고유한 signature_id 생성
     signature_id = generate_signature_id()
 
+    # GridFS에 파일 데이터 저장
+    gridfs_file_id = fs.put(file_data, filename=filename, filehash=filehash)
+
+    # 파일 메타데이터 저장 (GridFS에서 파일 ID 저장)
     file_metadata = {
         "signature_id": signature_id,
         "filehash": filehash,
         "filename": filename,
-        "file_data": file_data,  # 실제 파일 데이터
+        "gridfs_file_id": gridfs_file_id,  # GridFS 파일 ID
         "upload_time": datetime.now(),
         "upload_ip": upload_ip
     }
 
-    # MongoDB에 저장
+    # MongoDB의 file 컬렉션에 메타데이터 저장
     collection.insert_one(file_metadata)
-    print(f"파일 {filename}가 MongoDB에 업로드되었습니다. MD5: {filehash}, Signature ID: {signature_id}")
-
+    print(f"파일 {filename}가 MongoDB에 GridFS로 업로드되었습니다. MD5: {filehash}, Signature ID: {signature_id}")
 
 # 테스트 파일 경로와 IP
-test_file_path = r"C:\Users\Administrator\Desktop\sample_data\Acrobat_protected.exe"
+test_file_path = r"C:\Users\Administrator\Desktop\sample_data\Bandizip_protected.exe"
 test_upload_ip = "192.168.0.1"
 
 # 파일을 MongoDB에 업로드

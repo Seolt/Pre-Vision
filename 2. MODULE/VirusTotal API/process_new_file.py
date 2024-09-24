@@ -20,7 +20,7 @@ def process_new_file(file_hash, file_data, processed_hashes):
     details = search_file_by_hash(file_hash)
     if not details:
         logger.info(f"{file_hash} VirusTotal에 없음, 파일 업로드 중...")
-        flag = upload_file_to_virustotal(file_data['file_data'])  # 파일 내용 업로드
+        flag = upload_file_to_virustotal(file_data)  # 파일 내용 업로드
         if flag:
             # 파일 해시로 검색 (없으면 반복)
             search_result = search_file_by_hash_with_retry(file_hash)
