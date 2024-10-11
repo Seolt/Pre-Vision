@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의사항</title>
+    <link href="./Contact.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- nav 시작 -->
+    <div class="nav">
+        <a class="nav__logo" href="./Project.html">PRE-VISION</a>
+        <div class="nav__right">
+            <a href="./UserGuide.html" class="nav__right__a">User Guide</a>
+            <a href="./VirusScan.html" class="nav__right__a">Virus Scan</a>
+            <a href="./packing.html" class="nav__right__a">Packing</a>
+        </div>
+    </div>
+    <!-- nav 끝 -->
+
+    <!-- 문의사항 섹션 -->
+    <div class="container">
+        <div class="contact">
+            <h1>문의하기</h1>
+            <p> 궁금한 사항을 관리자에게 물어보세요.</p>
+            <span>(평일기준 1~2일 소요)</span>
+
+            <form class="contact-form">
+                <label for="name">이름</label>
+                <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+
+                <label for="email">이메일</label>
+                <input type="email" id="email" name="email" placeholder="이메일을 입력하세요" required>
+
+                <label for="message">문의 내용</label>
+                <textarea id="message" name="message" rows="6" placeholder="문의 내용을 입력하세요" required></textarea>
+
+                <button type="submit">문의사항 보내기</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- footer 시작 -->
+    <footer class="footer">
+        <div class="footer__nav">
+            <a href="https://github.com/" class="footer__link">Team Github</a>
+            <a href="./Contact.html" class="footer__link">Contact Us</a>
+            <a href="./donation.html" class="footer__link">Donation</a>
+        </div>
+        <div class="footer__legal">
+            <p><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+            <p>&copy; Copyright 2024. All Rights Reserved. Hosted by <a href="#">Pre-Vision</a></p>
+        </div>
+    </footer>
+    <!-- footer 끝 -->
+
+</body>
+
+</html>
