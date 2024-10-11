@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    <link href="./VirusScan.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="nav">
+        <a class="nav__logo" href="./Project.html">PRE-VISION</a>
+        <div class="nav__right">
+            <a href="./UserGuide.html" class="nav__right__a">User Guide</a>
+            <a href="./VirusScan.html" class="nav__right__a">Virus Scan</a>
+            <a href="./packing.html" class="nav__right__a">Packing</a>
+        </div>
+    </div>
+
+    <div class="upload-container">
+        <h1>👾</h1>
+        <h2>파일을 업로드하여 즉시 악성코드를 탐지하세요!</h2>
+        <div id="drop-zone" class="drop-zone">
+            <p>Drag & Drop your files here or click to select files</p>
+            <input type="file" id="file-input" multiple>
+        </div>
+        <div id="file-list"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__nav">
+            <a href="https://github.com/" class="footer__link">Team Github</a>
+            <a href="./Contact.html" class="footer__link">Contact Us</a>
+            <a href="./donation.html" class="footer__link">Donation</a>
+        </div>
+        <div class="footer__legal">
+            <p><a href="#">Terms of Use</a> | <a href="#">Privacy Policy</a></p>
+            <p>&copy; Copyright 2024. All Rights Reserved. Hosted by <a href="#">Pre-Vision</a></p>
+        </div>
+    </footer>
+
+    <script>
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const fileList = document.getElementById('file-list');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        fileInput.addEventListener('change', () => {
+            handleFiles(fileInput.files);
+        });
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('drop-zone--active');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('drop-zone--active');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drop-zone--active');
+            handleFiles(e.dataTransfer.files);
+        });
+
+        function handleFiles(files) {
+            fileList.innerHTML = '';
+            for (const file of files) {
+                const li = document.createElement('li');
+                li.textContent = `${file.name} (${file.size} bytes)`;
+                fileList.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
