@@ -1,0 +1,194 @@
+.guide-container {
+    width: 100%;
+    border-radius: 8px;
+    margin: 70px auto;
+    color: white;
+    max-width: 603px;
+}
+
+.guide-header {
+    font-size: 46px;
+    font-weight: 900;
+    margin-bottom: 150px;
+}
+
+.virus-guide-container{
+    margin-bottom: 80px;
+}
+
+.guide-gif{
+    border: 1px solid #6c757d;
+    border-radius: 5px;
+}
+
+.virus-guide-container > h2{
+    font-size: 27px;
+}
+
+.virus-guide-container__tip__h2{
+    font-size: 30px;
+    color: skyblue;
+}
+
+.virus-guide-container__tip__h3{
+    font-size: 29px;
+}
+
+.virus-guide-container__tip > ul{
+    list-style-type: none;
+    font-size: 18px;
+}
+
+.packing-guide-container > h2{
+    font-size: 27px;
+    margin-top: 7px;
+}
+
+.packing-guide-container__tip__h2{
+    font-size: 30px;
+    color: skyblue;
+}
+
+.packing-guide-container__forward{
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
+
+.packing-guide-container p{
+    font-size: 18px;
+}
+
+/* 모바일 기기 (화면 너비 600px 이하) */
+@media only screen and (max-width: 600px) {
+    .guide-container {
+        margin: 50px auto;
+    }
+
+    .guide-header {
+        font-size: 32px;
+        margin-bottom: 100px;
+    }
+
+    .virus-guide-container > h2 {
+        font-size: 20px;
+    }
+
+    .virus-guide-container__tip__h2 {
+        font-size: 24px;
+    }
+
+    .virus-guide-container__tip__h3 {
+        font-size: 22px;
+    }
+
+    .virus-guide-container__tip > ul {
+        font-size: 14px;
+    }
+
+    .packing-guide-container > h2{
+        font-size: 20px;
+    }
+    
+    .packing-guide-container__tip__h2{
+        font-size: 24px;
+    }
+
+    .packing-guide-container__forward {
+        font-size: 20px;
+    }
+
+    .packing-guide-container p{
+        font-size: 15px;
+    }
+}
+
+/* 태블릿 기기 (화면 너비 601px ~ 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .guide-container {
+        margin: 60px auto;
+    }
+
+    .guide-header {
+        font-size: 38px;
+        margin-bottom: 120px;
+    }
+
+    .virus-guide-container > h2 {
+        font-size: 24px;
+    }
+
+    .virus-guide-container__tip__h2 {
+        font-size: 28px;
+    }
+
+    .virus-guide-container__tip__h3 {
+        font-size: 26px;
+    }
+
+    .virus-guide-container__tip > ul {
+        font-size: 16px;
+    }
+
+    .packing-guide-container > h2{
+        font-size: 24px;
+    }
+    
+    .packing-guide-container__tip__h2{
+        font-size: 28px;
+    }
+
+    .packing-guide-container__forward {
+        font-size: 25px;
+    }
+
+    .packing-guide-container p{
+        font-size: 17px;
+    }
+}
+
+/* 데스크탑 (화면 너비 1025px 이상) */
+@media only screen and (min-width: 1025px) {
+    .guide-container {
+        width: 100%;
+        max-width: 603px;
+        margin: 70px auto;
+    }
+
+    .guide-header {
+        font-size: 46px;
+        margin-bottom: 150px;
+    }
+
+    .virus-guide-container > h2 {
+        font-size: 27px;
+    }
+
+    .virus-guide-container__tip__h2 {
+        font-size: 30px;
+    }
+
+    .virus-guide-container__tip__h3 {
+        font-size: 29px;
+    }
+
+    .virus-guide-container__tip > ul {
+        font-size: 18px;
+    }
+
+    .packing-guide-container > h2{
+        font-size: 27px;
+    }
+    
+    .packing-guide-container__tip__h2{
+        font-size: 30px;
+    }
+    
+    .packing-guide-container__forward {
+        font-size: 30px;
+    }
+
+    .packing-guide-container p{
+        font-size: 18px;
+    }
+}

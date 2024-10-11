@@ -1,0 +1,159 @@
+.container {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 200px auto;
+}
+
+.container__head {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.container__head h1 {
+    color: #333;
+}
+
+.container__head p {
+    color: #777;
+}
+
+.bank-details {
+    margin-bottom: 45px;
+}
+
+.bank-details h2 {
+    color: #333;
+    /* margin-bottom: 10px; */
+}
+
+.bank-details__p{
+    display: flex;
+}
+
+.bank-details__p2{
+    color: #777;
+}
+
+.donation-confirmation h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.donation-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.donation-form label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.donation-form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* DatePicker 스타일 추가 */
+.datePicker {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px; /* 다른 input과 동일한 폰트 크기 */
+}
+
+/* DatePicker의 기본 인라인 스타일 덮어쓰기 */
+.react-datepicker-wrapper {
+    width: 100%;
+}
+
+.donation-form button {
+    padding: 10px;
+    background-color: #F0EDCF;
+    color: black;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.donation-form button:hover {
+    background-color: #e4e1bb;
+}
+
+/* 태블릿 기기 (화면 너비 601px ~ 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        margin: 150px auto;
+        padding: 18px;
+    }
+
+    .container__head h1 {
+        font-size: 22px;
+    }
+
+    .container__head p {
+        font-size: 13px;
+    }
+
+    .bank-details h2,
+    .donation-confirmation h2 {
+        font-size: 19px;
+    }
+
+    .donation-form input {
+        font-size: 15px;
+        padding: 9px;
+    }
+
+    .donation-form button {
+        font-size: 15px;
+        padding: 11px;
+    }
+}
+
+/* 데스크탑 (화면 너비 1025px 이상) */
+@media only screen and (min-width: 1025px) {
+    .container {
+        margin: 200px auto;
+        padding: 20px;
+    }
+
+    .container__head h1 {
+        font-size: 40px;
+    }
+
+    .container__head p {
+        font-size: 20px;
+    }
+
+    .bank-details h2,
+    .donation-confirmation h2 {
+        font-size: 25px;
+    }
+
+    .bank-details__p{
+        font-size: 19px;
+    }
+
+    .donation-form label{
+        font-size: 20px;
+    }
+
+    .donation-form input {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .donation-form button {
+        font-size: 20px;
+        padding: 12px;
+    }
+}
