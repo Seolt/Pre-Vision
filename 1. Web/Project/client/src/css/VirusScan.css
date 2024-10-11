@@ -1,0 +1,149 @@
+.virus-container {
+    width: 100%;
+    margin: 190px auto auto auto;
+    text-align: center;
+    color: white;
+}
+
+.virus-container h1{
+    font-size: 50px;
+}
+
+.virus-container h2{
+    margin: 20px 31.5px 30px 31.5px;
+    padding: 0 300px;
+    max-width: 1200px;
+}
+
+.drop-zone {
+    width: 100%;
+    height: 250px;
+    border: 2px dashed #6c757d;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.drop-zone:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#file-input {
+    display: none;
+}
+
+.uploadBtn {
+    padding: 8px;
+    background-color: #F0EDCF;
+    color: black;
+    font-weight: 800;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 17px;
+    margin-bottom: 13px;
+}
+
+.uploadBtn:hover {
+    background-color: #9c9a7e;
+}
+
+
+.loading-spinner {
+    margin-top: 20px;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#file {
+    margin-top: 20px;
+    color: #F0EDCF;
+}
+
+#file li {
+    margin: 5px 0;
+}
+
+.open-popup-btn{
+    padding: 8px;
+    margin-top: 35px;
+    background-color: #F0EDCF;
+    color: black;
+    font-weight: 800;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.open-popup-btn:hover {
+    background-color: #9c9a7e;
+}
+
+/* 모바일 기기 (화면 너비 600px 이하) */
+@media only screen and (max-width: 600px) {
+    .virus-container h1 {
+        font-size: 40px;
+    }
+
+    .virus-container h2 {
+        font-size: 18px;
+        padding: 0 20px; /* 패딩 축소 */
+    }
+
+    .drop-zone {
+        height: 200px; /* 높이 축소 */
+    }
+}
+
+/* 태블릿 기기 (화면 너비 601px ~ 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .virus-container h1 {
+        font-size: 45px;
+    }
+
+    .virus-container h2 {
+        font-size: 22px;
+        padding: 0 141px; /* 패딩 축소 */
+    }
+
+    .drop-zone {
+        height: 220px; /* 높이 조정 */
+    }
+}
+
+/* 데스크탑 (화면 너비 1025px 이상) */
+@media only screen and (min-width: 1025px) {
+    .virus-container h1 {
+        font-size: 50px;
+    }
+
+    .virus-container h2 {
+        font-size: 24px;
+        padding: 0 300px; /* 패딩 유지 */
+    }
+
+    .drop-zone {
+        height: 250px;
+    }
+}

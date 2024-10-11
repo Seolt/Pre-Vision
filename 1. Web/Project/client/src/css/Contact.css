@@ -1,0 +1,156 @@
+.container {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 200px auto;
+}
+
+.contact {
+    width: 100%;
+    color: #333;
+    text-align: center;
+}
+
+.contact h1 {
+    margin-bottom: 20px;
+}
+
+.contact span {
+    margin-bottom: 30px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+.contact-form label {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    padding: 12px;
+    background-color: #F0EDCF;
+    color: black;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form button:hover {
+    background-color: #e4e1bb;
+}
+
+/* 모바일 기기 (화면 너비 600px 이하) */
+@media only screen and (max-width: 600px) {
+    .container {
+        margin: 100px auto;
+        padding: 15px;
+    }
+
+    .contact h1 {
+        font-size: 40px;
+    }
+
+    .contact p {
+        font-size: 30px;
+    }
+
+    .contact span {
+        font-size: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .contact-form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* 태블릿 기기 (화면 너비 601px ~ 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .container {
+        margin: 150px auto;
+        padding: 18px;
+    }
+
+    .contact h1 {
+        font-size: 30px;
+    }
+
+    .contact p {
+        font-size: 19px;
+    }
+
+    .contact span {
+        font-size: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 15px;
+        padding: 9px;
+    }
+
+    .contact-form button {
+        font-size: 15px;
+        padding: 11px;
+    }
+}
+
+/* 데스크탑 (화면 너비 1025px 이상) */
+@media only screen and (min-width: 1025px) {
+    .container {
+        margin: 200px auto;
+        padding: 20px;
+    }
+
+    .contact h1 {
+        font-size: 40px;
+    }
+
+    .contact p {
+        font-size: 25px;
+    }
+
+    .contact span {
+        font-size: 20px;
+    }
+
+    .contact-form label{
+        font-size: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .contact-form button {
+        font-size: 20px;
+        padding: 12px;
+    }
+}

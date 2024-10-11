@@ -1,0 +1,37 @@
+.policy-container {
+    color: white;
+    max-width: 600px;
+    list-style-type: none;
+    margin-top: 40px;
+}
+
+.policy-container>ul {
+    list-style-type: none;
+}
+
+.policy-container>h2 {
+    text-align: center;
+}
+
+/* 모바일 기기 (화면 너비 600px 이하) */
+@media only screen and (max-width: 600px) {
+    .policy-container {
+        max-width: 300px;
+    }
+}
+
+/* 태블릿 기기 (화면 너비 601px ~ 1024px) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .policy-container {
+        max-width: 400px;
+    }
+
+}
+
+/* 데스크탑 (화면 너비 1025px 이상) */
+@media only screen and (min-width: 1025px) {
+    .policy-container {
+        max-width: 600px;
+    }
+
+}
